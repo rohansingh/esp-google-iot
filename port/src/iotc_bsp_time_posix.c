@@ -1,7 +1,7 @@
 /* Copyright 2018-2019 Google LLC
  *
- * This is part of the Google Cloud IoT Device SDK for Embedded C,
- * it is licensed under the BSD 3-Clause license; you may not use this file
+ * This is part of the Google Cloud IoT Device SDK for Embedded C.
+ * It is licensed under the BSD 3-Clause license; you may not use this file
  * except in compliance with the License.
  *
  * You may obtain a copy of the License at:
@@ -16,6 +16,7 @@
 
 #include <iotc_bsp_time.h>
 
+#include <esp_timer.h>
 #include <stddef.h>
 #include <sys/time.h>
 
@@ -36,4 +37,8 @@ iotc_time_t iotc_bsp_time_getcurrenttime_milliseconds() {
   return (iotc_time_t)((current_time.tv_sec * 1000) +
                        (current_time.tv_usec + 500) /
                            1000); /* round the microseconds to milliseconds */
+}
+
+iotc_time_t iotc_bsp_time_getmonotonictime_milliseconds() {
+  return (iotc_time_t)(esp_timer_get_time() / 1000);
 }
