@@ -1,0 +1,62 @@
+{
+    "name": "esp-google-iot",
+
+    "build": {
+        "srcDir": ".",
+        "srcFilter": [
+            "+<iot-device-sdk-embedded-c/src/bsp/tls/mbedtls/*.c>",
+            "+<iot-device-sdk-embedded-c/src/bsp/crypto/mbedtls/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/control_topic/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/datastructures/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/debug_extensions/memory_limiter/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/event_dispatcher/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/event_loop/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/io/fs/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/io/fs/memory/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/io/net/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/memory/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/mqtt/codec/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/mqtt/logic/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/mqtt/tls/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/tls/*.c>",
+            "+<iot-device-sdk-embedded-c/src/libiotc/tls/certs/*.c>",
+            "+<iot-device-sdk-embedded-c/third_party/mqtt-protocol-c/*.c>",
+            "+<port/src/*.c>",
+
+            "-<iot-device-sdk-embedded-c/src/libiotc/iotc_test.*>",
+            "-<iot-device-sdk-embedded-c/src/libiotc/iotc_jwt_test.*>",
+            "-<iot-device-sdk-embedded-c/src/libiotc/event_dispatcher/iotc_event_dispatcher_test.*>",
+            "-<iot-device-sdk-embedded-c/src/libiotc/event_dispatcher/iotc_event_handle_test.*>"
+        ],
+
+        "flags": [
+            "-Iiot-device-sdk-embedded-c/src/bsp",
+            "-Iiot-device-sdk-embedded-c/include/bsp",
+            "-Iiot-device-sdk-embedded-c/include",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/control_topic",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/datastructures",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/debug_extensions/memory_limiter",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/event_dispatcher",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/event_loop",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/io/fs/memory",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/io/fs",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/io/net",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/mqtt/logic",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/mqtt/codec",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/platform/iotc_thread",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/platform/posix/iotc_thread",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/tls",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/tls/certs",
+            "-Iiot-device-sdk-embedded-c/src/libiotc/memory",
+            "-Iiot-device-sdk-embedded-c/src/libiotc",
+            "-Iiot-device-sdk-embedded-c/third_party/mqtt-protocol-c",
+
+            "-DIOTC_FS_MEMORY",
+            "-DIOTC_MEMORY_LIMITER_APPLICATION_MEMORY_LIMIT=524288",
+            "-DIOTC_MEMORY_LIMITER_SYSTEM_MEMORY_LIMIT=2024",
+            "-DIOTC_MEMORY_LIMITER_ENABLED",
+            "-DIOTC_TLS_LIB_MBEDTLS"
+        ]
+    }
+}
